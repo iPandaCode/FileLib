@@ -1,39 +1,19 @@
-﻿<Window x:Class="Demo.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Demo"
+        xmlns:FtpUserControlLib="clr-namespace:FtpUserControlLib;assembly=FtpUserControlLib" x:Class="Demo.MainWindow"
         mc:Ignorable="d"
-       Title="MainWindow" Height="600" Width="1200"
         Loaded="Window_Loaded"
-        Unloaded="Window_Unloaded">
+        Title="MainWindow" Height="535.11" Width="873.237">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"></ColumnDefinition>
-            <ColumnDefinition Width="3*"></ColumnDefinition>
-            <ColumnDefinition Width="3*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0" Orientation="Vertical">
             <Button Margin="30" Content="文件夹上传" Width="300" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" Click="btnUploadDirectory_Click" ></Button>
             <Button Margin="30" x:Name="btUploadFile" Content="文件上传" Width="300" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" Click="btnUploadFile_Click" ></Button>
             <Button Margin="30" x:Name="btnDownload" Content="文件夹下载" Width="300" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" Click="btnDownloadDirectory_Click" ></Button>
             <Button Margin="30" x:Name="btDownloadFile" Content="文件下载" Width="300" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" Click="btnDownloadFile_Click" ></Button>
-            <Button Margin="30" x:Name="btnReflash" Content="刷新任务列表" Width="300" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" Click="btnReflash_Click" ></Button>
-        </StackPanel>
-        <StackPanel Grid.Column="1" Orientation="Vertical">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock x:Name="tblockTaskSum" Width="300" Height="30"></TextBlock>
-                <TextBlock x:Name="tblockDoneCount" Width="300" Height="30"></TextBlock>
-            </StackPanel>
-            <ListView x:Name="lv" Height="500" ScrollViewer.VerticalScrollBarVisibility="Auto"></ListView>
-        </StackPanel>
-        <StackPanel Grid.Column="2" Orientation="Vertical">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock x:Name="tblockDownloadTaskSum" Width="300" Height="30"></TextBlock>
-                <TextBlock x:Name="tblockDownloadDoneCount" Width="300" Height="30"></TextBlock>
-            </StackPanel>
-            <ListView x:Name="lvDownload" Height="500" ScrollViewer.VerticalScrollBarVisibility="Auto"></ListView>
         </StackPanel>
     </Grid>
 </Window>

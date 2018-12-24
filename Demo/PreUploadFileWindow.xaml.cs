@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using FileLib;
+using FtpUserControlLib;
 
 namespace Demo
 {
@@ -20,7 +21,6 @@ namespace Demo
     /// </summary>
     public partial class PreUploadFileWindow : Window
     {
-        public MainWindow mainWindow { get; set; }
         public PreUploadFileWindow()
         {
             InitializeComponent();
@@ -55,13 +55,18 @@ namespace Demo
             else
             {
                 this.Close();
-                FtpHelper.TaskInit(info);
-                FtpTaskUserControl taskControl = new FtpTaskUserControl(info);
-                taskControl.btnRun.Content = info.ResultCode == ResultCode.New ? "Wait" : "Run";
-                taskControl.mainWindow = mainWindow;
-                mainWindow.lv.Items.Add(taskControl);
-                mainWindow.TaskSum++;
-                mainWindow.ReflashUI();
+                if (MainWindow.uploadForm == null || MainWindow.uploadForm.IsDisposed)
+                {
+                    MainWindow.uploadForm = new FtpUploadListForm();
+
+                           
+                    MainWindow.uploadForm.Done += (s, ex) => { };
+                    MainWindow.uploadForm.Init();
+                }
+                FtpHelper.TaskInit(info);            
+                MainWindow.uploadForm.Add(info);
+                MainWindow.uploadForm.WindowState = System.Windows.Forms.FormWindowState.Normal;
+                MainWindow.uploadForm.Show();
             }
         }
 

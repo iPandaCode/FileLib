@@ -1,0 +1,12 @@
+F:\GitHub\Code\Library\FileLib\FileLib\bin\Debug\FileLib.dll
+F:\GitHub\Code\Library\FileLib\FileLib\bin\Debug\FileLib.pdb
+F:\GitHub\Code\Library\FileLib\FileLib\obj\Debug\FileLib.dll
+F:\GitHub\Code\Library\FileLib\FileLib\obj\Debug\FileLib.pdb
+F:\GitHub\Code\WPF\FtpUserControlLib\FileLib\FileLib\bin\Debug\FileLib.dll
+F:\GitHub\Code\WPF\FtpUserControlLib\FileLib\FileLib\bin\Debug\FileLib.pdb
+F:\GitHub\Code\WPF\FtpUserControlLib\FileLib\FileLib\obj\Debug\FileLib.dll
+F:\GitHub\Code\WPF\FtpUserControlLib\FileLib\FileLib\obj\Debug\FileLib.pdb
+F:\FtpUserControlLib\FtpUserControlLib\FileLib\FileLib\bin\Debug\FileLib.dll
+F:\FtpUserControlLib\FtpUserControlLib\FileLib\FileLib\bin\Debug\FileLib.pdb
+F:\FtpUserControlLib\FtpUserControlLib\FileLib\FileLib\obj\Debug\FileLib.dll
+F:\FtpUserControlLib\FtpUserControlLib\FileLib\FileLib\obj\Debug\FileLib.pdb

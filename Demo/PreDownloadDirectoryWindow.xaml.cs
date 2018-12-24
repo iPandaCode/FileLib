@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Text.RegularExpressions;
 using System.IO;
+using FtpUserControlLib;
 using FileLib;
 
 namespace Demo
@@ -22,7 +23,6 @@ namespace Demo
     /// </summary>
     public partial class PreDownloadDirectoryWindow : Window
     {
-        public MainWindow mainWindow { get; set; }
         public PreDownloadDirectoryWindow()
         {
             InitializeComponent();
@@ -68,16 +68,22 @@ namespace Demo
             else
             {
                 this.Close();
-                List<FileInfoEntity> ls = FtpHelper.TaskInit(info).Where(x => x.FileType == FileType.File).Select(x => { return x; }).ToList();
-                foreach (FileInfoEntity item in ls)
+                if (MainWindow.downloadForm == null || MainWindow.downloadForm.IsDisposed)
                 {
-                    FtpTaskUserControl taskControl = new FtpTaskUserControl(item);
-                    taskControl.btnRun.Content = item.ResultCode == ResultCode.New ? "Wait" : "Run";
-                    taskControl.mainWindow = mainWindow;
-                    mainWindow.DownloadTaskSum++;
-                    mainWindow.lvDownload.Items.Add(taskControl);
+                    MainWindow.downloadForm = new FtpDownloadListForm();
+                    MainWindow.downloadForm.Init();
                 }
-                mainWindow.ReflashUI();
+                List<FileInfoEntity> subDirList = new List<FileInfoEntity>();
+                List<FileInfoEntity> ls = FtpHelper.TaskInit(info).Where(x => x.FileType == FileType.File).Select(x => { return x; }).ToList();
+                if (ls != null)
+                {
+                    foreach (FileInfoEntity item in ls)
+                    {
+                        MainWindow.downloadForm.Add(item);
+                    }
+                }
+                MainWindow.downloadForm.WindowState = System.Windows.Forms.FormWindowState.Normal;
+                MainWindow.downloadForm.Show();
             }
         }
 

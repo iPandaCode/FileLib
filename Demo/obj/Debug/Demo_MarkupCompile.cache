@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-F:\GitHub\Code\Library\FileLib\Demo\obj\Debug\
+F:\FtpUserControlLib\FtpUserControlLib\Demo\obj\Debug\
 Demo
 none
 false
 DEBUG;TRACE
-F:\GitHub\Code\Library\FileLib\Demo\App.xaml
-61545251134
+F:\FtpUserControlLib\FtpUserControlLib\Demo\App.xaml
+5-1747404663
 
-10-879902407
-16-241851945
-FtpTaskUserControl.xaml;MainWindow.xaml;PreDownloadDirectoryWindow.xaml;PreDownloadFileWindow.xaml;PreUploadDirectoryWindow.xaml;PreUploadFileWindow.xaml;
+9-1516844089
+1656503289
+MainWindow.xaml;PreDownloadDirectoryWindow.xaml;PreDownloadFileWindow.xaml;PreUploadDirectoryWindow.xaml;PreUploadFileWindow.xaml;
 
 False
 

@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using System.Text.RegularExpressions;
 using System.IO;
 using FileLib;
+using FtpUserControlLib;
 
 namespace Demo
 {
@@ -22,7 +23,6 @@ namespace Demo
     /// </summary>
     public partial class PreDownloadFileWindow : Window
     {
-        public MainWindow mainWindow { get; set; }
         public PreDownloadFileWindow()
         {
             InitializeComponent();
@@ -67,13 +67,19 @@ namespace Demo
             else
             {
                 this.Close();
+                if (MainWindow.downloadForm == null || MainWindow.downloadForm.IsDisposed)
+                {
+                    MainWindow.downloadForm = new FtpDownloadListForm();
+
+
+                    MainWindow.downloadForm.Done += (s, ex) => { };
+                    MainWindow.downloadForm.Init();
+                }
                 FtpHelper.TaskInit(info);
-                FtpTaskUserControl taskControl = new FtpTaskUserControl(info);
-                taskControl.btnRun.Content = info.ResultCode == ResultCode.New ? "Wait" : "Run";
-                taskControl.mainWindow = mainWindow;
-                mainWindow.DownloadTaskSum++;
-                mainWindow.lvDownload.Items.Add(taskControl);
-                mainWindow.ReflashUI();
+                MainWindow.downloadForm.Add(info);
+                MainWindow.downloadForm.WindowState = System.Windows.Forms.FormWindowState.Normal;
+                MainWindow.downloadForm.Show();
+
             }
         }
 
